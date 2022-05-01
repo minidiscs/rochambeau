@@ -5,12 +5,14 @@ function game(){
         let computerInput = computerPlay();
         computerInput = computerInput.toLocaleLowerCase();
         let winner = calcRoundWinner(playerInput, computerInput);
-        console.log(`It's ${playerInput} vs ${computerInput}:`);
+
+        console.log(`So it's ${playerInput} vs ${computerInput}:`);
+
         if (winner == 'player'){
             console.log(`Player wins, player's ${playerInput} beats computer's ${computerInput}`)
         }
         else if (winner == 'computer'){
-            console.log(`Computer wins, player's ${playerInput} does not beat computer's ${computerInput}`)
+            console.log(`Computer wins, player's ${playerInput} succumbs to computer's ${computerInput}`)
         }
         else if (winner == 'none') {
             round -= 1;
@@ -18,7 +20,7 @@ function game(){
         }
         else {
             round -= 1;
-            console.log("There has been an error. The round has not been counted.");
+            console.log(`There has been an error. Is "${playerInput}" a valid move? Play round again.`);
         }
     }
 }
@@ -33,22 +35,14 @@ function calcRoundWinner(playerPlay, computerPlay){
     if (playerPlay === computerPlay){
         return 'none';
     }
-    else if (playerPlay == 'paper' && computerPlay == 'rock'){
+    else if ((playerPlay === 'rock' && computerPlay === 'scissors') || 
+    (playerPlay === 'paper' && computerPlay === 'rock') || 
+    (playerPlay === 'scissors' && computerPlay === 'paper')){
         return 'player';
     }
-    else if (playerPlay == 'scissors' && computerPlay == 'rock'){
-        return 'computer';
-    }
-    else if (playerPlay == 'rock' && computerPlay == 'paper'){
-        return 'player';
-    }
-    else if (playerPlay == 'scissors' && computerPlay == 'paper'){
-        return 'player';
-    }
-    else if (playerPlay == 'paper' && computerPlay == 'scissors'){
-        return 'computer';
-    }
-    else if (playerPlay == 'rock' && computerPlay == 'scissors'){
+    else if ((playerPlay === 'rock' && computerPlay === 'paper') || 
+    (playerPlay === 'paper' && computerPlay === 'scissors') || 
+    (playerPlay === 'scissors' && computerPlay === 'rock')){
         return 'computer';
     }
     else {
