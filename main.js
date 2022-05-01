@@ -1,10 +1,10 @@
 function game(){
     for (let round = 0; round < 5; round++) {
-        const playerMove = prompt("What's your move?");
-        const computerMove = computerPlay();
-        playRound(playerMove, computerMove);
-        console.log(playerMove + ' vs ' + computerMove);
-        console.log(playRound(playerMove, computerMove));
+        const playerInput = prompt("What's your move?");
+        const computerInput = computerPlay();
+        playRound(playerInput, computerInput);
+        console.log(playerInput + ' vs ' + computerInput);
+        console.log(playRound(playerInput, computerInput));
     }
 }
 
@@ -14,25 +14,27 @@ function computerPlay(){
 }
 
 function playRound(playerPlay, computerPlay){
+    let playerMove = playerPlay.toLowerCase();
+    let computerMove = computerPlay.toLowerCase();
     if (playerPlay === computerPlay){
         return result = 'Draw'
     }
-    else if (playerPlay === 'Paper' && computerPlay === 'Rock'){
+    else if (computerMove == 'paper' && computerMove == 'rock'){
         return result = 'Paper beats rock, player wins!';
     }
-    else if (playerPlay === 'Scissors' && computerPlay === 'Rock'){
+    else if (playerMove == 'scissors' && computerMove == 'rock'){
         return result = 'Rock beats scissors, computer wins!';
     }
-    else if (playerPlay === 'Rock' && computerPlay === 'Paper'){
+    else if (playerMove == 'rock' && computerMove == 'paper'){
         return result = 'Rock beats paper, player wins!';
     }
-    else if (playerPlay === 'Scissors' && computerPlay === 'Paper'){
+    else if (playerMove == 'scissors' && computerMove == 'paper'){
         return result = 'Scissors beats paper, player wins!';
     }
-    else if (playerPlay === 'Paper' && computerPlay === 'Scissors'){
+    else if (playerMove == 'paper' && computerMove == 'scissors'){
         return result = 'Scissors beats paper, computer wins!';
     }
-    else if (playerPlay === 'Rock' && computerPlay === 'Scissors'){
+    else if (playerMove == 'rock' && computerMove == 'scissors'){
         return result = 'Scissors beats paper, computer wins!';
     }
     else{
