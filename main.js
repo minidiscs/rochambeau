@@ -43,21 +43,6 @@ function playRound(playerPlay, computerPlay){
     }
 }
 
-const body = document.body;
-
-/* const buttonRock = document.createElement('button');
-body.append(buttonRock);
-buttonRock.innerText = "Rock"
-
-const buttonPaper = document.createElement('button');
-body.append(buttonPaper);
-buttonPaper.innerText = "Paper"
-
-const buttonScissors = document.createElement('button');
-body.append(buttonScissors);
-buttonScissors.innerText = "Scissors"
-
-or */
 let gameResult =  ''
 
 const btnR = document.querySelector('#rock');
